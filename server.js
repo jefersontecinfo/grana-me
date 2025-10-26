@@ -12,7 +12,7 @@ const ZAPI_URL = `https://api.z-api.io/instances/${INSTANCE_ID}/token/${TOKEN}/v
 // 📨 Quando a Z-API enviar uma mensagem recebida:
 app.post("/webhook", async (req, res) => {
   try {
-    const { message, phone } = req.body;
+    const { message, phone } = req.body.data;
 
     console.log(`📩 Mensagem recebida de ${phone}: ${message}`);
 
@@ -36,3 +36,4 @@ app.post("/webhook", async (req, res) => {
 app.listen(3000, () => {
   console.log("🤖 Servidor do assistente financeiro rodando na porta 3000");
 });
+
